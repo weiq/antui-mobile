@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": {
+      "en-US": "Start",
+      "zh-CN": "开始"
+    },
+    "icon": "star-o",
+    "type": "page",
+    "link": "start"
+  },
+  {
+    "id": "2",
+    "name": {
+      "en-US": "Components",
+      "zh-CN": "组件"
+    },
+    "icon": "th",
+    "type": "menu",
+    "items": [
+      {
+        "name": "Icon | 图标",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "Icon",
+        "component": "icon/icon"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": {
+      "en-US": "Document",
+      "zh-CN": "帮助文档"
+    },
+    "icon": "book",
+    "type": "menu",
+    "items": [
+      {
+        "name": {
+          "en-US": "Get Started",
+          "zh-CN": "开始使用"
+        },
+        "icon": "gear",
+        "guide": {
+          "en-US": "getstarted.en-US.md",
+          "zh-CN": "getstarted.zh-CN.md"
+        }
+      },
+      {
+        "name": {
+          "en-US": "Use Column",
+          "zh-CN": "column.js 用法"
+        },
+        "icon": "gear",
+        "guide": {
+          "zh-CN": "column.zh-CN.md"
+        }
+      }
+    ]
+  }
+]
