@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router';
-import { Menu } from 'antd';
+import Menu, { Item as MenuItem, ItemGroup as MenuItemGroup } from 'rc-menu';
 import cx from 'classnames';
+import 'rc-menu/assets/index.css';
 import './style.less';
 
 class Navigation extends Component {
@@ -55,26 +56,26 @@ class Navigation extends Component {
       let menus = item.items;
       return (
         <Menu className="menuItems" theme="dark" mode="inline" defaultSelectedKeys={["menu" + this.props.current.aid]}>
-          <Menu.ItemGroup title={!this.state.searchFilter ? `${menus.length} ${langs.searchbar.items}` : langs.searchbar.result}>
+          <MenuItemGroup title={!this.state.searchFilter ? `${menus.length} ${langs.searchbar.items}` : langs.searchbar.result}>
             {
               menus.map((item, i) => {
                 if (!this.state.searchFilter || item.name.toLowerCase().indexOf(this.state.searchFilter.toLowerCase()) > -1) {
                   return ( 
-                    <Menu.Item key={"menu" + i}>
+                    <MenuItem key={"menu" + i}>
                       <Link to={`/docs/${this.props.current.id}/articles/${i}`}>
                         <div className="menu-item">
                           <FontAwesome name={item.icon} size="2x" className="menu-icon" />
                           <span className="menu-name">{typeof item.name === 'object' ? item.name[locale] : item.name}</span>
                         </div>
                       </Link>
-                    </Menu.Item>
+                    </MenuItem>
                   );
                 } else {
                   return false;
                 }
               })
             }
-          </Menu.ItemGroup>
+          </MenuItemGroup>
         </Menu>
       );
     }

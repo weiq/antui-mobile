@@ -118,6 +118,25 @@
   width: 180px;
   flex: auto;
   overflow-y: auto;
+  .rc-menu-vertical, .rc-menu-inline{
+    padding: 0;
+  }
+
+  .rc-menu-vertical .rc-menu-item,
+  .rc-menu-inline .rc-menu-item,
+  .rc-menu-vertical .rc-menu-submenu-title,
+  .rc-menu-inline .rc-menu-submenu-title {
+    padding: 0 16px;
+    font-size: 12px;
+    line-height: 42px;
+    height: 42px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .rc-menu-item-group-list .rc-menu-item,
+  .rc-menu-item-group-list .rc-menu-submenu-title {
+    padding: 0 16px 0 28px;
+  }
 }
 
 .navMenu::-webkit-scrollbar {

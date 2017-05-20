@@ -10,7 +10,7 @@
     "transform-runtime",
     ["import-demand", [
       {
-        "libName": "antd",
+        "libName": "antd-mobile",
         "cssPath": "style/css",
         "spell": true
       },

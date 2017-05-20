@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import {Row, Col} from 'antd';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router';
 import './start.less';
@@ -25,26 +24,26 @@ class Start extends Component {
         </div>
         <div className="start-box-features">
           <div className="start-box-features-inner">
-            <Row gutter={8}>
-              <Col span={8}>
+            <div className="row clearfix">
+              <div className="item">
                 <Link to="/docs/2/articles/0" className="start-box-features-item color-green">
                   <FontAwesome name="play-circle" size="4x" />
                   <p>{lang.getstart}</p>
                 </Link>
-              </Col>
-              <Col span={8}>
+              </div>
+              <div className="item">
                 <Link to="/docs/1/articles/0" className="start-box-features-item color-blue">
                   <FontAwesome name="th" size="4x" />
                   <p>{lang.component}</p>
                 </Link>
-              </Col>
-              <Col span={8}>
+              </div>
+              <div className="item">
                 <a href="https://github.com/weiq/antui-mobile" target="_blank" className="start-box-features-item color-og">
                   <FontAwesome name="github" size="4x" />
                   <p>{lang.github}</p>
                 </a>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </div>
         </div>
         <div className="start-box-footer">

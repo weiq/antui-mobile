@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import Remarkable from 'react-remarkable';
 import CodeMirror from 'codemirror/lib/codemirror.js';
 import hljs from 'highlight.js';
-import { Tabs } from 'antd';
-const TabPane = Tabs.TabPane;
+import Tabs, { TabPane } from 'rc-tabs';
+import TabContent from 'rc-tabs/lib/TabContent';
+import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import 'rc-tabs/assets/index.css';
 
 //bunch of css
 import 'highlight.js/styles/github.css';
@@ -88,7 +90,12 @@ class Articles extends Component {
     const { code, langs, guide, content, name } = this.props;
 
     return (
-      <Tabs defaultActiveKey="1" onChange={() => this.setState({})}>
+      <Tabs 
+        defaultActiveKey="1" 
+        onChange={() => this.setState({})}
+        renderTabBar={() => <ScrollableInkTabBar />}
+        renderTabContent={() => <TabContent animatedWithMargin />}
+      >
         <TabPane tab={name || langs.detail} key="1">
           <article>
             <div className="markdown-body">

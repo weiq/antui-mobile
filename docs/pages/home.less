@@ -7,37 +7,53 @@
 }
 
 @media (max-width: 1024px) {
-  .App__preview { display: flex; }
-  .Resizer { display: none; }
-  .Pane:first-of-type {
-    display: flex;
-  }
+    .App__preview { display: none; }
+    .Resizer { display: none; }
+    .Pane:first-of-type {
+        display: none;
+    }
 }
 
 .App__detail{
   height: 100%;
-  overflow: auto;
+  overflow: scroll;
   border-left: 1px solid #bcbab6;
   article{
     padding: 0 15px;
   }
+  .rc-tabs{
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+    color: rgba(0, 0, 0, 0.65);
+    .rc-tabs-ink-bar{
+      background-color: #108ee9;
+    }
+    .rc-tabs-tab-active, .rc-tabs-tab-active:hover{
+      color: #108ee9;
+    }
+  }
 }
 
 .App__mobileview{
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 1);
-  position: relative;
-  overflow: auto;
-  background-image: linear-gradient(90deg, #fafafa 1px, rgba(0,0,0,0) 1px), linear-gradient(0deg, #fafafa 1px, rgba(0,0,0,0) 1px);
-  background-position: 0px 1px;
-  background-repeat: repeat;
-  background-size: 20px 20px;
+    width: 375px;
+    height: 667px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-/*.App__mobileview::-webkit-scrollbar, .App__mobileview .page::-webkit-scrollbar {
+.App__mobileview::-webkit-scrollbar, .App__mobileview .page::-webkit-scrollbar {
     display: none;
-}*/
+}
+
+/*.App__mobileview:hover {*/
+/*    background: rgba(255, 255, 255, 1);*/
+/*    transition: all .25s ease;*/
+/*}*/
 
 .Pane.vertical.Pane1 {
     height: 100%;
