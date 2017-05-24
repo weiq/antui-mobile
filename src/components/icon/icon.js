@@ -1,26 +1,41 @@
 import React, {PropTypes} from 'react';
 import classNames from 'classnames';
-import './style.less';
+import {Icon} from 'antd-mobile';
 
 /**
  *  Icon
  */
-export default class Icon extends React.Component {
+class IconComp extends React.Component {
   static propTypes = {
     type: PropTypes.string.isRequired,
     spin: PropTypes.bool,
     className: PropTypes.string,
-    children: PropTypes.node,
-    iconFace: PropTypes.string
+    children: PropTypes.node, 
+    svg: PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.bool
+    ]),
   }
 
   render() {
-    const { type, className = '', children, spin, ...props } = this.props;
+    const { type, className = '', children, spin, svg, ...props } = this.props;
     const classString = classNames({
       iconfont: true,
       'iconfont-spin': !!spin || type === 'loading',
       [`iconfont-${type}`]: true,
     }, className);
-    return <i className={classString} {...props}>{children}</i>;
+
+    let svgProps = {};
+    if (typeof svg === "string") { // svg 为图标路径
+      svgProps = {...this.props, type: require(`${svg}`)};
+      delete svgProps.svg;
+    } else if (svg === true) { // 使用内部svg
+      svgProps = {type: require("../../style/icon/svg/" + type + ".svg")};
+      delete svgProps.svg;
+    }
+    
+    return !svg ? <i className={classString} {...props}>{children}</i> : <Icon {...svgProps} />;
   }
-}
+} 
+
+export default IconComp;

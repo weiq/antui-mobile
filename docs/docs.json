@@ -19,11 +19,24 @@
     "type": "menu",
     "items": [
       {
+        "name": "Layout | 布局",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "Layout",
+        "component": "layout/layout"
+      }, {
         "name": "Icon | 图标",
         "version": "0.1.0",
         "icon": "info-circle",
         "preview": "Icon",
         "component": "icon/icon"
+      }, {
+        "name": "ImageLoader | 图片(Lazy)",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "ImageLoader",
+        "component": "imageloader/imageloader",
+        "guide" : "imageloader.zh-CN.md"
       }
     ]
   },
