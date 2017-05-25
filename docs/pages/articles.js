@@ -3,10 +3,7 @@ import ReactDOM from 'react-dom';
 import Remarkable from 'react-remarkable';
 import CodeMirror from 'codemirror/lib/codemirror.js';
 import hljs from 'highlight.js';
-import Tabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/TabContent';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
-import 'rc-tabs/assets/index.css';
+import { Tabs } from 'antd-mobile';
 
 //bunch of css
 import 'highlight.js/styles/github.css';
@@ -14,7 +11,7 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 import 'codemirror/mode/jsx/jsx';
 import 'codemirror/addon/display/autorefresh';
-import 'github-markdown-css';
+import './github-markdown-css.css';
 import './home.less';
 
 class Articles extends Component {
@@ -90,13 +87,8 @@ class Articles extends Component {
     const { code, langs, guide, content, name } = this.props;
 
     return (
-      <Tabs 
-        defaultActiveKey="1" 
-        onChange={() => this.setState({})}
-        renderTabBar={() => <ScrollableInkTabBar />}
-        renderTabContent={() => <TabContent animatedWithMargin />}
-      >
-        <TabPane tab={name || langs.detail} key="1">
+      <Tabs defaultActiveKey="1" animated={false} onChange={() => this.setState({})}>
+        <Tabs.TabPane tab={name || langs.detail} key="1">
           <article>
             <div className="markdown-body">
               <Remarkable source={content} />
@@ -105,12 +97,12 @@ class Articles extends Component {
               }
             </div>
           </article>
-        </TabPane>
-        {code ? <TabPane tab={langs.srcCode} key="2">
+        </Tabs.TabPane>
+        {code ? <Tabs.TabPane tab={langs.srcCode} key="2">
           <article>
             <textarea ref="codeblock" defaultValue={code.replace('../../../src/index', 'antui-mobile')} />
           </article>
-        </TabPane> : false}
+        </Tabs.TabPane> : false}
       </Tabs>
     );
   }

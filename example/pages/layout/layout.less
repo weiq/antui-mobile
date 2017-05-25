@@ -1,4 +1,7 @@
-.layout-demo-container{
+.layout-demo{
+  .antui-layout{
+    color: #fff;
+  }
   .antui-layout-header{
     background: red;
   }
@@ -10,7 +13,7 @@
   }
 
   .inside-layout{
-    padding: 1em;
+    margin: 2em;
     .antui-layout-header{
       background: tint(red);
     }
@@ -19,6 +22,25 @@
     }
     .antui-layout-footer{
       background: tint(blue);
+    }
+  }
+
+  .transition-layout{
+    color: #333;
+    .antui-layout-header{
+      padding: 5PX 7PX;
+      text-align: center;
+    }
+    .content{
+      background: #333;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      font-size: 3em;
+      color: aqua;
+      line-height: 2;
+      border: 2PX solid #FFEB3B;
     }
   }
 }

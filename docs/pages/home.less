@@ -6,7 +6,7 @@
   height: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1024PX) {
     .App__preview { display: none; }
     .Resizer { display: none; }
     .Pane:first-of-type {
@@ -17,9 +17,9 @@
 .App__detail{
   height: 100%;
   overflow: scroll;
-  border-left: 1px solid #bcbab6;
+  border-left: 1PX solid #bcbab6;
   article{
-    padding: 0 15px;
+    padding: 0 15PX;
   }
   .rc-tabs{
     box-sizing: border-box;
@@ -37,10 +37,10 @@
 }
 
 .App__mobileview{
-    width: 375px;
-    height: 667px;
+    width: 375PX;
+    height: 667PX;
     background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
+    border-radius: 5PX;
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -78,42 +78,42 @@
 }
 
  .Resizer.horizontal {
-    height: 11px;
-    margin: -5px 0;
-    border-top: 5px solid rgba(255, 255, 255, 0);
-    border-bottom: 5px solid rgba(255, 255, 255, 0);
+    height: 11PX;
+    margin: -5PX 0;
+    border-top: 5PX solid rgba(255, 255, 255, 0);
+    border-bottom: 5PX solid rgba(255, 255, 255, 0);
     cursor: row-resize;
     width: 100%;
 }
 
 .Resizer.horizontal:hover {
-    border-top: 5px solid rgba(0, 0, 0, 0.5);
-    border-bottom: 5px solid rgba(0, 0, 0, 0.5);
+    border-top: 5PX solid rgba(0, 0, 0, 0.5);
+    border-bottom: 5PX solid rgba(0, 0, 0, 0.5);
 }
 
 .Resizer.vertical {
-    width: 25px;
-    margin: 0 -5px;
-    border-left: 5px solid rgba(255, 255, 255, 0);
-    border-right: 5px solid rgba(255, 255, 255, 0);
+    width: 25PX;
+    margin: 0 -5PX;
+    border-left: 5PX solid rgba(255, 255, 255, 0);
+    border-right: 5PX solid rgba(255, 255, 255, 0);
     cursor: col-resize;
 }
 
 .Resizer.vertical::before {
     content: '';
-    height: 25px;
-    width: 2px;
+    height: 25PX;
+    width: 2PX;
     top: 50%;
-    left: 5px;
-    /* margin-left: -10px; */
+    left: 5PX;
+    /* margin-left: -10PX; */
     position: absolute;
-    border-left: 2px solid rgba(0, 0, 0, 0.94);
-    border-right: 2px solid rgb(0, 0, 0);
+    border-left: 2PX solid rgba(0, 0, 0, 0.94);
+    border-right: 2PX solid rgb(0, 0, 0);
 }
 
 .Resizer.vertical:hover {
-    border-left: 5px solid rgba(0, 0, 0, 0.7);
-    border-right: 5px solid rgb(0, 0, 0);
+    border-left: 5PX solid rgba(0, 0, 0, 0.7);
+    border-right: 5PX solid rgb(0, 0, 0);
 }
 Resizer.disabled {
   cursor: not-allowed;
@@ -123,7 +123,7 @@ Resizer.disabled:hover {
 }
 
 .CodeMirror {
-  font-size: 13px;
+  font-size: 13PX;
   font-family: Lucida Console,Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
-  height: auto;
+  height: 90vh !important;
 }

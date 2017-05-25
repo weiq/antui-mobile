@@ -31,6 +31,12 @@
         "preview": "Icon",
         "component": "icon/icon"
       }, {
+        "name": "NavBar | 导航条",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "NavBar",
+        "component": "navbar/navbar"
+      }, {
         "name": "ImageLoader | 图片(Lazy)",
         "version": "0.1.0",
         "icon": "info-circle",
