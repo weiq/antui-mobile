@@ -21,10 +21,6 @@ class Basic extends Component {
     prefixCls: PropTypes.string,
     className: PropTypes.string,
     children: PropTypes.node,
-    /**
-     * 动画效果
-     */
-    transition: PropTypes.string,
   }
 
   render() {

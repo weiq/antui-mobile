@@ -8,11 +8,15 @@ export default class TransitionPages extends Component {
 
   static propTypes = {
     children: PropTypes.node,
-    location: PropTypes.object
+    location: PropTypes.object,
+    /**
+     * 可以直接指定转场动画，或由子类传入，或由url传入
+     */
+    transition: PropTypes.string,
   };
 
   render() {
-    const { location, children } = this.props;
+    const { location, children, transition: _selfTransition } = this.props;
     let transition = 'sfl';
     let transitionKey;
 
@@ -22,7 +26,9 @@ export default class TransitionPages extends Component {
       transitionKey = location.pathname;
     }
 
-    if (children.props && children.props.location) {
+    if (_selfTransition) {
+      transition = _selfTransition;
+    } else if (children.props && children.props.location) {
       transition = children.props.location.query.t;
     } else if (children.props && children.props.transition) {
       transition = children.props.transition;

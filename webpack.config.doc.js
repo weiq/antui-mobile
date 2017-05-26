@@ -2,7 +2,6 @@ let webpack = require('webpack');
 let path = require('path');
 let autoprefixer = require('autoprefixer');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let pxtorem = require('postcss-pxtorem');
 
 const svgDirs = [
@@ -29,7 +28,7 @@ module.exports = {
       { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel', query: { cacheDirectory: true } }, 
       { test: /\.less$/, loader: 'style!css!postcss!less' }, 
       { test: /\.css/, loader: 'style!css!postcss' }, 
-      { test: /\.(png|jpg|svg)$/, loader: 'url?limit=25000', exclude: /node_modules/ }, 
+      { test: /\.(png|jpg|svg)$/, loader: 'url?limit=25000', exclude: [/node_modules/, ...svgDirs, 'src/style/fonts'] }, 
       { test: /\.json$/, loader: 'json' },
       { test: /\.woff(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff' },
       { test: /\.woff2(\?.*)?$/, loader: 'url?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2' },

@@ -3,14 +3,23 @@ import classNames from 'classnames';
 import {Icon} from 'antd-mobile';
 
 /**
- *  Icon
+ *  Icon SVG图标 font图标
  */
 class IconComp extends React.Component {
   static propTypes = {
+    /**
+     * 图标名
+     */
     type: PropTypes.string.isRequired,
+    /**
+     * 旋转
+     */
     spin: PropTypes.bool,
     className: PropTypes.string,
     children: PropTypes.node, 
+    /**
+     * 设为true则使用自已配置的svg图标，设为antd为使用antd的图标
+     */
     svg: PropTypes.oneOfType([
       React.PropTypes.string,
       React.PropTypes.bool
@@ -26,11 +35,11 @@ class IconComp extends React.Component {
     }, className);
 
     let svgProps = {};
-    if (typeof svg === "string") { // svg 为图标路径
-      svgProps = {...this.props, type: require(`${svg}`)};
+    if (svg === "antd") { // 使用antd的svg图标 
+      svgProps = {...this.props, type};
       delete svgProps.svg;
-    } else if (svg === true) { // 使用内部svg
-      svgProps = {type: require("../../style/icon/svg/" + type + ".svg")};
+    } else if (svg === true) { // 使用内部svg图标 
+      svgProps = {...this.props, type: require("../../style/icon/svg/" + type + ".svg")};
       delete svgProps.svg;
     }
     

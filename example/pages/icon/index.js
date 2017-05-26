@@ -22,7 +22,19 @@ export default class IconDemo extends React.Component {
     return (
       <Page className="icon-demo" title="Icon" subTitle="图标">
         <nav>
-          <h2>图标列表：</h2>
+          <h2>图标列表</h2>
+          <h3>自已的的svg图标</h3>
+          <section>
+            <Icon svg type="user" />
+            <Icon svg type="search" />
+          </section>
+          <h3>Antd-mobile的svg图标</h3>
+          <section>
+            <Icon svg="antd" type="search" />
+            <Icon svg="antd" type="check" />
+            <Icon svg="antd" type="cross" />
+          </section>
+          <h3>font图标：</h3>
           <section>
             <ul className="icon-demo-list clearfix">
               {iconlist.map(icon => (

@@ -37,12 +37,24 @@
         "preview": "NavBar",
         "component": "navbar/navbar"
       }, {
+        "name": "SearchBar | 搜索条",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "SearchBar",
+        "component": "searchbar/searchbar"
+      }, {
         "name": "ImageLoader | 图片(Lazy)",
         "version": "0.1.0",
         "icon": "info-circle",
         "preview": "ImageLoader",
         "component": "imageloader/imageloader",
         "guide" : "imageloader.zh-CN.md"
+      }, {
+        "name": "Modal | 模态窗",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "Modal",
+        "component": "modal/modal"
       }
     ]
   },

@@ -11,31 +11,32 @@ export default class NavBarDemo extends React.Component {
           <h3>基本</h3>
           <section>
             <NavBar
-              leftContent="back"
+              leftContent="返回"
               onLeftClick={() => console.log('onLeftClick')}
-              rightContent={[
-                <Icon type="search" />,
-              ]}
+              rightContent={
+                <Icon type="search" />
+              }
             >NavBar</NavBar>
           </section>
-          <h3>基本</h3>
+          <h3>Dark</h3>
           <section>
             <NavBar
-              leftContent="back"
+              mode="dark"
+              leftContent="返回"
               onLeftClick={() => console.log('onLeftClick')}
-              rightContent={[
-                <Icon type="search" />,
-              ]}
+              rightContent={
+                <Icon type="search" />
+              }
             >NavBar</NavBar>
           </section>
-          <h3>基本</h3>
+          <h3>跳转</h3>
           <section>
             <NavBar
+              backURL="/"
               leftContent="back"
-              onLeftClick={() => console.log('onLeftClick')}
-              rightContent={[
-                <Icon type="search" />,
-              ]}
+              rightContent={
+                <Icon type="search" />
+              }
             >NavBar</NavBar>
           </section>
         </nav>

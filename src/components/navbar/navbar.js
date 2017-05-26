@@ -12,7 +12,7 @@ class NavBarComp extends Component {
     mode: PropTypes.string,
 
     /**
-     * 返回时过滤动画 左：'sfl', 右：'sfr', 上：'sft', 下：'sfb'
+     * 返回时过度动画 左：'sfl', 右：'sfr', 上：'sft', 下：'sfb'
      */
     transition: PropTypes.string,
 
@@ -50,6 +50,9 @@ class NavBarComp extends Component {
 
   render() {
     const {mode, ...otherProps} = this.props;
+
+    delete otherProps.backURL;
+    delete otherProps.transition;
 
     return (
       <NavBar
