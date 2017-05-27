@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import React, { Component, PropTypes } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 /**
  * 页面过渡
@@ -20,7 +20,7 @@ export default class TransitionPages extends Component {
     let transition = 'sfl';
     let transitionKey;
 
-    if ('key' in children.props) {
+    if (children.props && 'key' in children.props) {
       transitionKey = children.props.key;
     } else if (location && location.pathname) {
       transitionKey = location.pathname;
@@ -34,7 +34,7 @@ export default class TransitionPages extends Component {
       transition = children.props.transition;
     }
 
-    return (
+    return !children || children.length === 0 ? null : (
       <ReactCSSTransitionGroup
         component='div'
         className='transition-pages'

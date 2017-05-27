@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import PageSystem from '../pages/System';
 import cx from 'classnames';
 
 class CoreLayout extends Component {
@@ -11,8 +12,31 @@ class CoreLayout extends Component {
   static defaultProps = {
     prefixCls: "antui-corelayout"
   }
+
+  static childContextTypes = {
+    page: React.PropTypes.object
+  };
+
+  componentDidMount() {
+    this.context.page.popup({
+      uid: "123",
+      header: <div>123</div>
+    })    
+  }
+
+  /**
+   * this.context.page.popup({uid, header, content, footer, navbar, force})
+   */
+  getChildContext () {
+    return {
+      page: {
+        popup: (props) => { this.refs['pageSystem'].popup(props); },
+      }
+    };
+  }
+
   render() {
-    const { prefixCls, children, className } = this.props
+    const { prefixCls, children, className } = this.props;
     const classes = cx(prefixCls, {
     }, className);
     return (
@@ -20,11 +44,9 @@ class CoreLayout extends Component {
         <div className={classes}>
           {children}
         </div>
-        <NotificationSystem ref='notificationSystem' />
-        <ModalSystem ref='modalSystem' />
-        <IndicatorSystem ref='indicatorSystem' />
+        <PageSystem ref="pageSystem" />
       </div>
-    )
+    );
   }
 }
 

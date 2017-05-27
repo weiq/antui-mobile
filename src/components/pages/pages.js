@@ -1,10 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { Layout, NavBar } from '../../../src';
+import Layout from '../layout';
+import NavBar from '../navbar';
 import cx from 'classnames';
-
-const Header = Layout.Header;
-const Footer = Layout.Footer;
-const Content = Layout.Content;
 
 /**
  * 带导航条的的页面
@@ -29,11 +26,11 @@ class Pages extends Component {
 
     return (
       <Layout className={classes}>
-        <Header>
+        <Layout.Header>
           {header || <NavBar {...navbar}>{navbar.title}</NavBar>}
-        </Header>
-        <Content>{content}</Content>
-        <Footer>{footer}</Footer>
+        </Layout.Header>
+        <Layout.Content>{content}</Layout.Content>
+        <Layout.Footer>{footer}</Layout.Footer>
       </Layout>
     );
   }

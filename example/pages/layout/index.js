@@ -77,6 +77,12 @@ export default class IconDemo extends React.Component {
               </Layout>
             </div>
           </section>
+          <h2>转场效果：</h2>
+          <section>
+            <Layout.CoreLayout>
+              123123
+            </Layout.CoreLayout>
+          </section>
         </nav>
       </Page>
     );
