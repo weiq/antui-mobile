@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../../../src';
+import { Layout, Pages } from '../../../src';
 import Page from '../../component/page';
 import './layout.less';
 
@@ -8,7 +8,7 @@ const Footer = Layout.Footer;
 const Content = Layout.Content;
 const Transition = Layout.Transition;
 
-export default class IconDemo extends React.Component {
+export default class LayoutDemo extends React.Component {
   state= {
     transition: 'left'
   }
@@ -69,18 +69,18 @@ export default class IconDemo extends React.Component {
                   </div>
                 </Header>
                 <Content>
-                  <Transition>
-                    <div key={this.state.transition} transition={this.state.transition} className="content">Animate</div>
+                  <Transition transition={this.state.transition}>
+                    <div key={this.state.transition} className="content">Animate</div>
                   </Transition>
                 </Content>
                 <Footer>Footer</Footer>
               </Layout>
             </div>
           </section>
-          <h2>转场效果：</h2>
-          <section>
+          <h2>CoreLayout</h2>
+          <section style={{position: 'relative', height: 400, border: '1px solid'}}>
             <Layout.CoreLayout>
-              123123
+              <DemoPage />
             </Layout.CoreLayout>
           </section>
         </nav>
@@ -88,3 +88,39 @@ export default class IconDemo extends React.Component {
     );
   }
 };
+
+class DemoPage extends React.Component {
+  static contextTypes = {
+    page: React.PropTypes.object,
+  }
+
+  state = {
+    page: 0
+  }
+
+  // this.context.page.popup({uid, header, content, footer, navbar, force})
+  popup = () => {
+    this.context.page.popup({
+      uid: "demo" + this.state.page++,
+      navbar: {title: "Popup" + this.state.page},
+      content: <button onClick={this.popup}>弹出页面 {this.state.page}</button>,
+      style: {border: '2px solid #f50'}
+    });
+  }
+
+  render() {
+    return (
+      <Pages 
+        navbar={{
+          title: 'Demo'
+        }}
+        content={(
+          <div>
+            <button onClick={this.popup}>弹出页面</button>
+          </div>
+        )}
+        style={{border: '2px solid #f50'}}
+      />
+    );
+  }
+}

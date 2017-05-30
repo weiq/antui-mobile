@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layout';
 import { Toast } from 'antd-mobile';
 import Pages from './pages';
+import cx from 'classnames';
 
 export default class System extends Component {
   static propTypes = {
@@ -17,16 +18,22 @@ export default class System extends Component {
     current: null, // 当前显示哪个页
     _uids: [],
     transition: "sfr",
+    hide: true,
   }
 
-  popup(props) {
-    const {uid, force} = props;
+  popup = (options) => {
+    const {uid, navbar, force, ...otherProps} = options;
     let { page, _uids } = this.state;
-    if (!uid || !props) throw new Error("uid & element 不能为空");
+    let _navbar = {
+      leftContent: '返回',
+      onLeftClick: this.prevPopup,
+      ...navbar
+    };
+    if (!uid || !options) throw new Error("uid & options 不能为空");
 
     if (page[uid]) {
       if (force) { // 替换已有
-        page[uid] = props;
+        page[uid] = {navbar: _navbar, ...otherProps};
         _uids = page._uids.filter(_uid => _uid !== uid);
         _uids.push(uid);
       } else {
@@ -34,7 +41,7 @@ export default class System extends Component {
         return;
       }
     } else {
-      page[uid] = props;
+      page[uid] = {navbar: _navbar, ...otherProps};
       _uids.push(uid);
     }
 
@@ -42,30 +49,54 @@ export default class System extends Component {
       page,
       current: uid,
       _uids,
-      transition: "sfr",
+      transition: "rfl",
+      hide: false
     });
   }
 
-  prevPopup() {
+  prevPopup = () => {
+    let {current, _uids, page} = this.state;
+    if (current) {
+      delete page[current];
+      _uids.pop();
+      this.setState({
+        page,
+        current: _uids.slice(-1)[0],
+        _uids,
+        transition: "rfr",
+      });
+      
+      if (_uids.length === 0) {
+        setTimeout(_ => this.setState({hide: true}), 400);
+      }
+    }
+  }
+
+  close = (uid) => {
 
   }
 
-  close(uid) {
-
-  }
-
-  closeAll() {
+  closeAll = () => {
 
   }
 
   render() {
-    const { page, transition } = this.state;
+    const { page, transition, hide } = this.state;
+
+    let pageList = Object.keys(page);
+    const classes = cx({
+      hide
+    });
+
     return (
-      <Layout.Transition transition={transition}>
-        {Object.keys(page).map((uid, i) => {
-          return <Pages 
+      <Layout.Transition 
+        transition={transition} 
+        className={classes}
+      >
+        {pageList.map((uid, i) => {
+          return <Pages
             key={"page-" + uid}
-            {...page[uid].props} />;
+            {...page[uid]} />;
         })}
       </Layout.Transition>
     );

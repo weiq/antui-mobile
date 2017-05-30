@@ -13,7 +13,7 @@ class BaseComponent extends React.Component {
 
   static contextTypes = {
     router: PropTypes.object,
-    ui: PropTypes.object,
+    page: PropTypes.object,
   };
 
   constructor(props) {

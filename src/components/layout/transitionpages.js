@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import cx from 'classnames';
 
 /**
  * 页面过渡
@@ -7,6 +8,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 export default class TransitionPages extends Component {
 
   static propTypes = {
+    prefixCls: PropTypes.string,
+    className: PropTypes.string,
     children: PropTypes.node,
     location: PropTypes.object,
     /**
@@ -15,14 +18,18 @@ export default class TransitionPages extends Component {
     transition: PropTypes.string,
   };
 
+  static defaultProps = {
+    prefixCls: "antui-transition-pages"
+  }
+
   render() {
-    const { location, children, transition: _selfTransition } = this.props;
+    const { prefixCls, className, location, children, transition: _selfTransition } = this.props;
+    const classes = cx(prefixCls, className);
+
     let transition = 'sfl';
     let transitionKey;
 
-    if (children.props && 'key' in children.props) {
-      transitionKey = children.props.key;
-    } else if (location && location.pathname) {
+    if (location && location.pathname) {
       transitionKey = location.pathname;
     }
 
@@ -34,17 +41,25 @@ export default class TransitionPages extends Component {
       transition = children.props.transition;
     }
 
-    return !children || children.length === 0 ? null : (
+    let childrenComp = null;
+
+    if (children && children.length) {
+      childrenComp = children;
+    } else if (React.isValidElement(children)) {
+      childrenComp = transitionKey ? React.cloneElement(children, {
+        key: transitionKey
+      }) : children;
+    }
+
+    return (
       <ReactCSSTransitionGroup
         component='div'
-        className='transition-pages'
+        className={classes}
         transitionName={`page-transition-${transition}`}
         transitionEnterTimeout={400}
         transitionLeaveTimeout={400}
       >
-        {React.cloneElement(this.props.children, {
-          key: transitionKey
-        })}
+        {childrenComp}
       </ReactCSSTransitionGroup>
     );
   }

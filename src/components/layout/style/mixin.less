@@ -6,13 +6,19 @@
 @transition-layout-duration: .4s;
 @transition-layout-timing-function: cubic-bezier(.36, .66, .04, 1);
 
-.transition-pages {
+.antui-transition-pages {
   position: absolute;
   top: 0;
   right: 0;
   bottom:0;
   left: 0;
   overflow: hidden;
+  opacity: 1;
+  transition: .3s opacity;
+  &.hide{
+    opacity: 0;
+    z-index: -1000;
+  }
 }
 
 // Animations

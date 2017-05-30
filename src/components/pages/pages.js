@@ -14,20 +14,22 @@ class Pages extends Component {
     content: PropTypes.node,
     footer: PropTypes.node,
     navbar: PropTypes.object,
+    style: PropTypes.object,
   }
 
   static defaultProps = {
     prefixCls: "antui-pages"
   }
+
   render() {
-    const {prefixCls, className, header, content, footer, navbar} = this.props;
+    const {prefixCls, className, header, content, footer, navbar, style} = this.props;
 
     const classes = cx(prefixCls, className);
 
     return (
-      <Layout className={classes}>
+      <Layout className={classes} style={style}>
         <Layout.Header>
-          {header || <NavBar {...navbar}>{navbar.title}</NavBar>}
+          {header || (navbar && <NavBar {...navbar}>{navbar.title}</NavBar>)}
         </Layout.Header>
         <Layout.Content>{content}</Layout.Content>
         <Layout.Footer>{footer}</Layout.Footer>

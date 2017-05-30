@@ -25,11 +25,17 @@ class NavBarComp extends Component {
      * 点击左侧区域的事件，如配置这一项，则backURL将失效
      */
     onLeftClick: PropTypes.func,
+
+    /**
+     * 左侧内容
+     */
+    leftContent: PropTypes.node,
   }
 
   static defaultProps = {
     mode: "light",
     transition: "sfl",
+    leftContent: "返回",
     backURL: "/"
   }
 
@@ -49,7 +55,7 @@ class NavBarComp extends Component {
   }
 
   render() {
-    const {mode, ...otherProps} = this.props;
+    const {mode, leftContent, ...otherProps} = this.props;
 
     delete otherProps.backURL;
     delete otherProps.transition;
@@ -57,6 +63,7 @@ class NavBarComp extends Component {
     return (
       <NavBar
         mode={mode}
+        leftContent={leftContent}
         onLeftClick={this.onLeftClick}
         {...otherProps} 
       />
