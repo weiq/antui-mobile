@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Pages } from '../../../src';
+import { Layout, Pages, Button } from '../../../src';
 import Page from '../../component/page';
 import './layout.less';
 
@@ -77,7 +77,7 @@ export default class LayoutDemo extends React.Component {
               </Layout>
             </div>
           </section>
-          <h2>CoreLayout</h2>
+          <h2>CoreLayout 中的弹出页面</h2>
           <section style={{position: 'relative', height: 400, border: '1px solid'}}>
             <Layout.CoreLayout>
               <DemoPage />
@@ -103,7 +103,7 @@ class DemoPage extends React.Component {
     this.context.page.popup({
       uid: "demo" + this.state.page++,
       navbar: {title: "Popup" + this.state.page},
-      content: <button onClick={this.popup}>弹出页面 {this.state.page}</button>,
+      content: <Button type="primary" onClick={this.popup}>弹出页面 {this.state.page}</Button>,
       style: {border: '2px solid #f50'}
     });
   }
@@ -116,7 +116,7 @@ class DemoPage extends React.Component {
         }}
         content={(
           <div>
-            <button onClick={this.popup}>弹出页面</button>
+            <Button type="primary" onClick={this.popup}>弹出页面</Button>
           </div>
         )}
         style={{border: '2px solid #f50'}}
