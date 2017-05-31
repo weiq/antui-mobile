@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import Layout from '../layout';
 import NavBar from '../navbar';
 import cx from 'classnames';
@@ -6,7 +6,7 @@ import cx from 'classnames';
 /**
  * 带导航条的的页面
  */
-class Pages extends Component {
+class Pages extends PureComponent {
   static propTypes = {
     prefixCls: PropTypes.string,
     className: PropTypes.string,

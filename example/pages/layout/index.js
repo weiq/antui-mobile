@@ -112,14 +112,28 @@ class DemoPage extends React.Component {
     return (
       <Pages 
         navbar={{
-          title: 'Demo'
+          title: 'Demo',
+          backURL: ''
         }}
         content={(
           <div>
+            从弹出页面反回不会重新渲染该页 :)
+            <input type="text" />
+            <br /><br /><br /><br /><br /><br /><br />
+            <select>
+              <option value="111">111</option>
+              <option value="222">222</option>
+              <option value="333">333</option>
+              <option value="444">444</option>
+              <option value="555">555</option>
+            </select>
+
             <Button type="primary" onClick={this.popup}>弹出页面</Button>
+            <br /><br /><br /><br /><br /><br /><br />
+            底部底部
           </div>
         )}
-        style={{border: '2px solid #f50'}}
+        style={{border: '2px solid #f50', color: '#333'}}
       />
     );
   }

@@ -1,23 +1,47 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Layout from '../layout';
 import { Toast } from 'antd-mobile';
 import Pages from './pages';
 import cx from 'classnames';
+import Icon from '../icon';
+
+const leftContent = (prop) => (
+  <div className="system_navbar-left" onClick={prop.prevPopup}>
+    <span className="system_navbar-left-icon">
+      <Icon svg="antd" type="left" />
+    </span>
+    <span className="system_navbar-left-content">返回</span>
+  </div>
+);
+
+const leftContentAndClose = (prop) => (
+  <div className="system_navbar-left">
+    <div className="navbar-back" onClick={prop.prevPopup}>
+      <span className="system_navbar-left-icon">
+        <Icon svg="antd" type="left" />
+      </span>
+      <span className="system_navbar-left-content">返回</span>
+    </div>
+    <div className="navbar-close" onClick={prop.closeAll}>
+      <span className="system_navbar-left-content">关闭</span>
+    </div>
+  </div>
+);
 
 export default class System extends Component {
   static propTypes = {
-
+    prefixCls: PropTypes.string,
   };
 
   static defaultProps = {
-
+    prefixCls: "antui-pages-system"
   };
 
   state = {
     page: {}, // 页面
     current: null, // 当前显示哪个页
     _uids: [],
-    transition: "sfr",
+    transition: "rfl",
     hide: true,
   }
 
@@ -25,8 +49,13 @@ export default class System extends Component {
     const {uid, navbar, force, ...otherProps} = options;
     let { page, _uids } = this.state;
     let _navbar = {
-      leftContent: '返回',
-      onLeftClick: this.prevPopup,
+      leftContent: _uids.length > 1 ? leftContentAndClose({
+        prevPopup: this.prevPopup,
+        closeAll: this.closeAll
+      }) : leftContent({
+        prevPopup: this.prevPopup
+      }),
+      iconName: null,
       ...navbar
     };
     if (!uid || !options) throw new Error("uid & options 不能为空");
@@ -73,18 +102,24 @@ export default class System extends Component {
   }
 
   close = (uid) => {
-
   }
 
   closeAll = () => {
+    this.setState({
+      page: {},
+      current: null,
+      _uids: [],
+      transition: "rfr",
+    });
 
+    setTimeout(_ => this.setState({hide: true}), 400);
   }
 
   render() {
     const { page, transition, hide } = this.state;
 
     let pageList = Object.keys(page);
-    const classes = cx({
+    const classes = cx(this.props.prefixCls, {
       hide
     });
 

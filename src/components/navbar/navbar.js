@@ -36,7 +36,6 @@ class NavBarComp extends Component {
     mode: "light",
     transition: "sfl",
     leftContent: "返回",
-    backURL: "/"
   }
 
   static contextTypes = {
