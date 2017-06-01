@@ -48,7 +48,8 @@
     "object-assign": "^4.1.1",
     "react-addons-css-transition-group": "^15.5.2",
     "warning": "^3.0.0",
-    "wolfy87-eventemitter": "^5.1.0"
+    "wolfy87-eventemitter": "^5.1.0",
+    "echarts": "~3.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.5",

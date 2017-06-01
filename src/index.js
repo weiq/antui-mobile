@@ -6,6 +6,8 @@ import * as Native from './components/native';
 import NavBar from './components/navbar';
 import SearchBar from './components/searchbar';
 import Modal from './components/modal';
+import Chart from './components/chart';
+import Drawer from './components/drawer';
 
 export default {
   version,
@@ -15,4 +17,6 @@ export default {
   NavBar,
   SearchBar,
   Modal,
+  Chart,
+  Drawer,
 };

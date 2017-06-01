@@ -55,6 +55,18 @@
         "icon": "info-circle",
         "preview": "Modal",
         "component": "modal/modal"
+      }, {
+        "name": "Chart | 图形",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "Chart",
+        "component": "chart/chart"
+      }, {
+        "name": "Drawer | 抽屉",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "Drawer",
+        "component": "drawer/drawer"
       }
     ]
   },

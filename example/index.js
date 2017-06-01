@@ -4,6 +4,8 @@ import Layout from './pages/layout';
 import NavBar from './pages/navbar';
 import SearchBar from './pages/searchbar';
 import Modal from './pages/modal';
+import Chart from './pages/chart';
+import Drawer from './pages/drawer';
 
 export default {
   Icon,
@@ -12,4 +14,6 @@ export default {
   NavBar,
   SearchBar,
   Modal,
+  Chart,
+  Drawer,
 };
