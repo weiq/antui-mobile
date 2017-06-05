@@ -1,10 +1,12 @@
 import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
-import { hashHistory, Router, Route } from 'react-router';
+import { hashHistory, Router, Route, IndexRoute } from 'react-router';
+import { CoreLayout } from '../src/components/layout';
 import "babel-polyfill";
 import Pages from './index';
 import FastClick from 'fastclick';
-const { Button, Navpage, Tooltip, Icon, Layout, SearchBar, TreeTransfer, Map, Editor, Chart } = Pages;
+const { Home, Icon, Layout, SearchBar, ImageLoader, 
+  Modal, Drawer, Chart, NavBar } = Pages;
 
 class App extends React.Component {
   static propTypes = {
@@ -13,9 +15,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div style={{ height: '100%' }}>
+      <CoreLayout>
         {this.props.children}
-      </div>
+      </CoreLayout>
     );
   }
 }
@@ -27,7 +29,15 @@ window.addEventListener('load', () => {
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
+      <IndexRoute component={Home} />
+      <Route path="chart" component={Chart} />
+      <Route path="drawer" component={Drawer} />
+      <Route path="modal" component={Modal} />
+      <Route path="searchbar" component={SearchBar} />
+      <Route path="layout" component={Layout} />
       <Route path="icon" component={Icon} />
+      <Route path="image" component={ImageLoader} />
+      <Route path="navbar" component={NavBar} />
     </Route>
   </Router>
 ), document.getElementById('container'));

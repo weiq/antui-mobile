@@ -25,7 +25,7 @@ export default class LayoutDemo extends React.Component {
         <nav>
           <h2>基本布局：</h2>
           <section>
-            <div style={{height: 400, position: 'relative'}}>
+            <div style={{height: '8rem', position: 'relative'}}>
               <Layout>
                 <Header>Header</Header>
                 <Content>Content</Content>
@@ -35,7 +35,7 @@ export default class LayoutDemo extends React.Component {
           </section>
           <h2>嵌套：</h2>
           <section>
-            <div style={{height: 400, position: 'relative'}}>
+            <div style={{height: '8rem', position: 'relative'}}>
               <Layout>
                 <Header>Header</Header>
                 <Content>
@@ -52,7 +52,7 @@ export default class LayoutDemo extends React.Component {
           </section>
           <h2>转场效果：</h2>
           <section>
-            <div style={{height: 400, position: 'relative'}}>
+            <div style={{height: '8rem', position: 'relative'}}>
               <Layout className="transition-layout">
                 <Header>
                   <div>
@@ -78,7 +78,7 @@ export default class LayoutDemo extends React.Component {
             </div>
           </section>
           <h2>CoreLayout 中的弹出页面</h2>
-          <section style={{position: 'relative', height: 400, border: '1px solid'}}>
+          <section style={{position: 'relative', height: '8rem', border: '1px solid'}}>
             <Layout.CoreLayout>
               <DemoPage />
             </Layout.CoreLayout>

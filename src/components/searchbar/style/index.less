@@ -4,24 +4,17 @@
 
 .@{search-bar-prefix-cls} {
   position: relative;
-  padding: 8PX 10PX;
+  padding: .16rem .2rem;
   display: flex;
   box-sizing: border-box;
   background-color: #efeff4;
   width: 100%;
-
-  &:after,
-  &:before {
-    content: " ";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1PX;
-    color: #d7d6dc
-  }
+  border-top: 1PX solid #d7d6dc;
+  border-bottom: 1PX solid #d7d6dc;
 
   &_focusing &__cancel-btn {
-    display: block
+    display: flex;
+    align-items: center;
   }
 
   &_focusing &__label {
@@ -43,7 +36,7 @@
     height: 200%;
     transform: scale(.5);
     transform-origin: 0 0;
-    border-radius: 10PX;
+    border-radius: .2rem;
     border: 1PX solid #e6e6ea;
     box-sizing: border-box;
     background: #fff
@@ -51,8 +44,8 @@
 
   &__box {
     position: relative;
-    padding-left: 30PX;
-    padding-right: 30PX;
+    padding-left: .6rem;
+    padding-right: .6rem;
     height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -60,11 +53,10 @@
   }
 
   &__box &__input {
-    padding: 4PX 0;
+    padding: .08rem 0;
     width: 100%;
     height: 1.42857143em;
     border: 0;
-    font-size: 14PX;
     line-height: 1.42857143em;
     box-sizing: content-box;
     background: transparent
@@ -76,23 +68,22 @@
 
   &__box .antui-icon-search {
     position: absolute;
-    left: 8PX;
-    top: 4PX;
+    margin-top: .13rem;
+    margin-left: -.47rem;
   }
 
   .antui-icon-search {
     color: #b2b2b2;
-    width: 19PX;
-    height: 19PX;
+    width: .38rem;
+    height: .38rem;
   }
 
   &__box .antui-icon-clear {
     position: absolute;
-    top: 4px;
-    right: 4px;
-    line-height: 28PX;
-    width: 20px;
-    height: 20px;
+    top: .13rem;
+    right: .13rem;
+    width: .38rem;
+    height: .38rem;
     color: #b2b2b2;
   }
 
@@ -107,11 +98,14 @@
     text-align: center;
     color: #9b9b9b;
     background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__label span {
-    display: inline-block;
-    font-size: 14PX;
+    display: flex;
+    align-items: center;
   }
 
   &__label .antui-icon-search {
@@ -121,8 +115,7 @@
 
   &__cancel-btn {
     display: none;
-    margin-left: 10PX;
-    line-height: 28PX;
+    margin-left: .2rem;
     color: @primary-color;
     white-space: nowrap
   }

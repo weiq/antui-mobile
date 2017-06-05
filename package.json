@@ -5,7 +5,7 @@
   "main": "./lib",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.doc.js --hot --inline --progress --colors --host 0.0.0.0 --port 8988",
-    "start:example": "webpack-dev-server --hot --inline --progress --colors --port 8988",
+    "start:example": "webpack-dev-server --hot --inline --progress --colors --host 0.0.0.0 --port 8988",
     "clean": "rimraf ./lib ./coverage",
     "build:less": "",
     "build": "npm run clean & cross-env NODE_ENV=production babel ./src --out-dir ./lib --copy-files",

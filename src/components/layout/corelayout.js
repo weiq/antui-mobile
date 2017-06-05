@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import PageSystem from '../pages/System';
 import cx from 'classnames';
+import Transition from './transitionpages';
 
 class CoreLayout extends Component {
   static propTypes = {
@@ -39,9 +40,9 @@ class CoreLayout extends Component {
     }, className);
     return (
       <div className={`${prefixCls}-wrapper`} style={style}>
-        <div className={classes}>
+        <Transition className={classes}>
           {children}
-        </div>
+        </Transition>
         <PageSystem ref="pageSystem" />
       </div>
     );
