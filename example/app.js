@@ -1,12 +1,12 @@
 import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import { hashHistory, Router, Route, IndexRoute } from 'react-router';
-import {Layout, NavBar} from '../src';
+import {Layout as _Layout, NavBar as _NavBar} from '../src';
 import "babel-polyfill";
 import Pages from './index';
 import FastClick from 'fastclick';
-const { HomePage, IconPage, LayoutPage, SearchBarPage, ImageLoaderPage, 
-  ModalPage, DrawerPage, ChartPage, NavBarPage, ButtonPage } = Pages;
+const { Home, Icon, Layout, SearchBar, ImageLoader, 
+  Modal, Drawer, Chart, NavBar, Button } = Pages;
 
 class App extends React.Component {
   static propTypes = {
@@ -15,16 +15,16 @@ class App extends React.Component {
 
   render() {
     return (
-      <Layout.CoreLayout transition="sfr" {...this.props}>
-        <Layout>
-          <Layout.Header>
-            <NavBar backURL="/" transition="sfl" />
-          </Layout.Header>
-          <Layout.Content>
+      <_Layout.CoreLayout transition="sfr" {...this.props}>
+        <_Layout>
+          <_Layout.Header>
+            <_NavBar backURL="/" transition="sfl" />
+          </_Layout.Header>
+          <_Layout.Content>
             {this.props.children}
-          </Layout.Content>
-        </Layout>
-      </Layout.CoreLayout>
+          </_Layout.Content>
+        </_Layout>
+      </_Layout.CoreLayout>
     );
   }
 }
@@ -36,16 +36,16 @@ window.addEventListener('load', () => {
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <IndexRoute component={HomePage} />
-      <Route path="chart" component={ChartPage} />
-      <Route path="drawer" component={DrawerPage} />
-      <Route path="modal" component={ModalPage} />
-      <Route path="searchbar" component={SearchBarPage} />
-      <Route path="layout" component={LayoutPage} />
-      <Route path="icon" component={IconPage} />
-      <Route path="image" component={ImageLoaderPage} />
-      <Route path="navbar" component={NavBarPage} />
-      <Route path="button" component={ButtonPage} />
+      <IndexRoute component={Home} />
+      <Route path="chart" component={Chart} />
+      <Route path="drawer" component={Drawer} />
+      <Route path="modal" component={Modal} />
+      <Route path="searchbar" component={SearchBar} />
+      <Route path="layout" component={Layout} />
+      <Route path="icon" component={Icon} />
+      <Route path="image" component={ImageLoader} />
+      <Route path="navbar" component={NavBar} />
+      <Route path="button" component={Button} />
     </Route>
   </Router>
 ), document.getElementById('container'));
