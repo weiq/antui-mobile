@@ -5,5 +5,6 @@
   "editor.tabSize": 2,
   "editor.renderIndentGuides": true,
   "eslint.enable": true,
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "git.ignoreLimitWarning": true
 }

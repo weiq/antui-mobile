@@ -9,7 +9,7 @@
     "clean": "rimraf ./lib ./coverage",
     "build:less": "",
     "build": "npm run clean & cross-env NODE_ENV=production babel ./src --out-dir ./lib --copy-files",
-    "build:example": "rimraf ./dist && webpack --config webpack.config.prod.js --progress --colors -p",
+    "build:example": "rimraf ./dist && webpack --progress --colors -p",
     "build:doc": "rimraf ./dist/docs && webpack --config webpack.config.doc.js --progress --colors -p",
     "lint": "esw webpack.config.* src example doc --color",
     "lint:fix": "npm run lint -- --fix",
