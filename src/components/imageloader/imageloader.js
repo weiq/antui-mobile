@@ -42,7 +42,6 @@ const Image = (options = {}) => {
     componentDidMount() {
       if (!_blazy) {
         _blazy = new Blazy({...defaultOptions, ...options});
-        console.log("blazy mount");
       } else if (_blazy._util.count === 0) {
         _blazy.load(this.refs.image);
       }
@@ -52,7 +51,6 @@ const Image = (options = {}) => {
       if (_blazy) {
         _blazy.destroy();
         _blazy = null;
-        console.log("blazy unmount");
       }
     },
 
