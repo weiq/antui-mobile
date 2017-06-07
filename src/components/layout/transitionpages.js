@@ -26,20 +26,22 @@ export default class TransitionPages extends Component {
     const { prefixCls, className, location, children, transition: _selfTransition } = this.props;
     const classes = cx(prefixCls, className);
 
-    let transition = 'sfl';
+    let transition = 'sfr';
     let transitionKey;
 
     if (location && location.pathname) {
       transitionKey = location.pathname;
+    } else if (children && children.props && children.props.location) {
+      transitionKey = children.props.location.pathname;
     }
 
-    if (_selfTransition) {
-      transition = _selfTransition;
-    } else if (children.props && children.props.location) {
-      transition = children.props.location.query.t;
+    if (location && location.query.t) {
+      transition = location.query.t;
     } else if (children.props && children.props.transition) {
       transition = children.props.transition;
-    }
+    } else if (_selfTransition) {
+      transition = _selfTransition;
+    }  
 
     let childrenComp = null;
 

@@ -35,12 +35,12 @@ class CoreLayout extends Component {
   }
 
   render() {
-    const { prefixCls, children, className, style } = this.props;
+    const { prefixCls, children, className, style, ...otherProps } = this.props;
     const classes = cx(prefixCls, {
     }, className);
     return (
       <div className={`${prefixCls}-wrapper`} style={style}>
-        <Transition className={classes}>
+        <Transition className={classes} {...otherProps}>
           {children}
         </Transition>
         <PageSystem ref="pageSystem" />

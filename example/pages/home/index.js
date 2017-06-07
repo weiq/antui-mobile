@@ -10,6 +10,10 @@ class Home extends React.Component {
     router: React.PropTypes.object
   }
 
+  static defaultProps = {
+    transition: "sfl"
+  }
+
   render() {
     return (
       <Layout className="home-layout">
@@ -39,6 +43,11 @@ const menus = [
     name: '基本',
     icon: 'basic',
     items: [
+      {
+        component: 'Button',
+        label: '按钮',
+        to: '/button'
+      },
       {
         component: 'Icon',
         label: '图标',

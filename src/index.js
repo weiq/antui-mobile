@@ -8,6 +8,8 @@ import SearchBar from './components/searchbar';
 import Modal from './components/modal';
 import Chart from './components/chart';
 import Drawer from './components/drawer';
+import Button from './components/button';
+import Layout from './components/layout';
 
 export default {
   version,
@@ -19,4 +21,6 @@ export default {
   Modal,
   Chart,
   Drawer,
+  Button,
+  Layout,
 };

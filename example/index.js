@@ -1,21 +1,23 @@
-import Home from './pages/home';
-import Icon from './pages/icon';
-import ImageLoader from './pages/imageloader';
-import Layout from './pages/layout';
-import NavBar from './pages/navbar';
-import SearchBar from './pages/searchbar';
-import Modal from './pages/modal';
-import Chart from './pages/chart';
-import Drawer from './pages/drawer';
+import HomePage from './pages/home';
+import IconPage from './pages/icon';
+import ImageLoaderPage from './pages/imageloader';
+import LayoutPage from './pages/layout';
+import NavBarPage from './pages/navbar';
+import SearchBarPage from './pages/searchbar';
+import ModalPage from './pages/modal';
+import ChartPage from './pages/chart';
+import DrawerPage from './pages/drawer';
+import ButtonPage from './pages/button';
 
 export default {
-  Home,
-  Icon,
-  ImageLoader,
-  Layout,
-  NavBar,
-  SearchBar,
-  Modal,
-  Chart,
-  Drawer,
+  HomePage,
+  IconPage,
+  ImageLoaderPage,
+  LayoutPage,
+  NavBarPage,
+  SearchBarPage,
+  ModalPage,
+  ChartPage,
+  DrawerPage,
+  ButtonPage,
 };

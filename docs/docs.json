@@ -19,6 +19,12 @@
     "type": "menu",
     "items": [
       {
+        "name": "Button | 按钮",
+        "version": "0.1.0",
+        "icon": "info-circle",
+        "preview": "Button",
+        "component": "button/button"
+      }, {
         "name": "Layout | 布局",
         "version": "0.1.0",
         "icon": "info-circle",

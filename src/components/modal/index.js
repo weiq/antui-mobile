@@ -1,3 +1,3 @@
-import Modal from './modal';
+import {Modal} from 'antd-mobile';
 
-export default Modal.Modal;
+export default Modal;

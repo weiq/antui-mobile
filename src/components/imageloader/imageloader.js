@@ -43,6 +43,8 @@ const Image = (options = {}) => {
       if (!_blazy) {
         _blazy = new Blazy({...defaultOptions, ...options});
         console.log("blazy mount");
+      } else if (_blazy._util.count === 0) {
+        _blazy.load(this.refs.image);
       }
     },
     
@@ -59,6 +61,7 @@ const Image = (options = {}) => {
       const classes = classNames("antui-image", prefixCls, className);
       return (
         <img className={classes}
+          ref="image"
           src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
           data-src={src}
           alt={alt}
