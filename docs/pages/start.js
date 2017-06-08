@@ -26,7 +26,7 @@ class Start extends Component {
           <div className="start-box-features-inner">
             <div className="row clearfix">
               <div className="item">
-                <Link to="/docs/2/articles/0" className="start-box-features-item color-green">
+                <Link to="/docs/2/articles/0" className="start-box-features-item color-red">
                   <FontAwesome name="play-circle" size="4x" />
                   <p>{lang.getstart}</p>
                 </Link>
@@ -41,6 +41,12 @@ class Start extends Component {
                 <a href="https://github.com/weiq/antui-mobile" target="_blank" className="start-box-features-item color-og">
                   <FontAwesome name="github" size="4x" />
                   <p>{lang.github}</p>
+                </a>
+              </div>
+              <div className="item">
+                <a href="https://weiq.github.com/antui-mobile" target="_blank" className="start-box-features-item qrcode color-green">
+                  <FontAwesome name="qrcode" size="4x" />
+                  <p>{lang.qrcode}</p>
                 </a>
               </div>
             </div>
