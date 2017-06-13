@@ -17,7 +17,7 @@ class Home extends React.Component {
   render() {
     return (
       <Layout className="home-layout">
-        <Content>
+        <Content className="test-scroll" storeName="home">
           {menus.map((menu, i) => (
             <List key={"list_" + i} renderHeader={() => menu.name} className="my-list">
               {menu.items.map((item, j) => (

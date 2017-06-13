@@ -1,3 +1,3 @@
-import ListView from './listview';
+import {ListView} from 'antd-mobile';
 
 export default ListView;

@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import {findDOMNode} from 'react-dom';
 import cx from 'classnames';
 import TransitionPages from './transitionpages';
+import {Session} from '../../utils/storage';
 
 function generator(props) {
   return Basic => {
@@ -8,9 +10,46 @@ function generator(props) {
       static Header;
       static Footer;
       static Content;
+
+      static propTypes = {
+        storeName: PropTypes.string,
+      }
+      // 存储历史数据
+      store = Session.getAttribute("store") || {};
+
+      componentDidMount() {
+        this.restoreScrollTop();    
+      }
+
+      componentWillUnmount() {
+        this.storeScrollTop();
+      }
+
+      restoreScrollTop() {
+        if (this.props.storeName) {
+          let dom = findDOMNode(this);
+          dom.scrollTop = this.store[this.props.storeName] ? this.store[this.props.storeName].scrollTop : 0;
+        }
+      }
+
+      storeScrollTop() {
+        if (this.props.storeName) {
+          let scrollTop = findDOMNode(this).scrollTop;
+          if (this.store && this.store[this.props.storeName]) {
+            this.store[this.props.storeName] = {scrollTop};
+            Session.setAttribute("store", this.store);
+          } else {
+            Session.setAttribute("store", {[this.props.storeName]: {scrollTop}});
+          }
+        }
+      }
+
       render() {
         const { prefixCls } = props;
-        return <Basic prefixCls={prefixCls} {...this.props} />;
+        const compProps = {...this.props};
+        delete compProps.storeName;
+        
+        return <Basic prefixCls={prefixCls} {...compProps} />;
       }
     };
   };
