@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
-class ListView extends Component {
+class List extends Component {
   render() {
     return null;
   }
 }
 
-export default ListView;
+export default List;

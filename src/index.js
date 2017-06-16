@@ -11,6 +11,7 @@ import Drawer from './components/drawer';
 import Button from './components/button';
 import Layout from './components/layout';
 import ListView from './components/listview';
+import List from './components/list';
 
 export default {
   version,
@@ -25,4 +26,5 @@ export default {
   Button,
   Layout,
   ListView,
+  List,
 };
