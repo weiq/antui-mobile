@@ -1,4 +1,4 @@
-import {once, trigger} from '../BaseEvent';
+import {once, trigger} from '../baseevent';
 import {Session} from '../../utils/storage';
 import objectAssign from 'object-assign';
 

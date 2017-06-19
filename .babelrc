@@ -11,7 +11,7 @@
     ["import-demand", [
       {
         "libName": "antd-mobile",
-        "cssPath": "style/css",
+        "cssPath": "style/css.web",
         "spell": true
       },
       {

@@ -1,4 +1,4 @@
-import Native from './Native';
+import Native from './native';
 
 class GPSLocation extends Native {
   handleData = (res, device, resolve, reject) => {

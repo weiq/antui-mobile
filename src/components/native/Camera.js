@@ -1,4 +1,4 @@
-import Native from './Native';
+import Native from './native';
 
 /**
  * 组件摄像头
