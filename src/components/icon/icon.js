@@ -39,7 +39,7 @@ class IconComp extends React.Component {
       svgProps = {...this.props, type};
       delete svgProps.svg;
     } else if (svg === true) { // 使用内部svg图标 
-      svgProps = {...this.props, type: require("./style/svg/" + type + ".svg")};
+      svgProps = {...this.props, type: require("!svg-sprite!./style/svg/" + type + ".svg")};
       delete svgProps.svg;
     }
     

@@ -97,7 +97,7 @@ class SearchBar extends Component {
       <div className={classes}>
         <form className={`${prefixCls}__form`} onSubmit={this.submitHandle}>
           <div className={`${prefixCls}__box`}>
-            <Icon type="search" svg className="antui-icon-search" />
+            <Icon type="search" svg="antd" className="antui-icon-search" />
             <input
               ref="searchInput"
               type="search"
@@ -109,7 +109,7 @@ class SearchBar extends Component {
               onChange={this.changeHandle}
               value={this.state.text}
             />
-            <Icon type="close_circle" svg className="antui-icon-clear" onClick={this.clearHandle} />
+            <Icon type="cross-circle" svg="antd" className="antui-icon-clear" onClick={this.clearHandle} />
           </div>
           <label
             className={`${prefixCls}__label`}
@@ -121,7 +121,7 @@ class SearchBar extends Component {
             }}
             style={{ display: this.state.text ? "none" : null }}
           >
-            <span><Icon type="search" svg className="antui-icon-search" />{placeholder}</span>
+            <span><Icon type="search" svg="antd" className="antui-icon-search" />{placeholder}</span>
           </label>
         </form>
         <a className={`${prefixCls}__cancel-btn`} onClick={this.cancelHandle}>取消</a>

@@ -12,6 +12,8 @@ import Button from './components/button';
 import Layout from './components/layout';
 import ListView from './components/listview';
 import List from './components/list';
+import Accordion from './components/accordion';
+import RefreshControl from './components/refreshcontrol';
 
 export default {
   version,
@@ -27,4 +29,6 @@ export default {
   Layout,
   ListView,
   List,
+  Accordion,
+  RefreshControl,
 };
