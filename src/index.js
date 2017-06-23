@@ -14,6 +14,7 @@ import ListView from './components/listview';
 import List from './components/list';
 import Accordion from './components/accordion';
 import RefreshControl from './components/refreshcontrol';
+import DatePicker from './components/DatePicker';
 
 export default {
   version,
@@ -31,4 +32,5 @@ export default {
   List,
   Accordion,
   RefreshControl,
+  DatePicker,
 };
