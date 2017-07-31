@@ -25,13 +25,12 @@ class CoreLayout extends Component {
   getChildContext () {
     return {
       page: {
-        popup: (props) => { this.popupPage(props); },
+        popup: (props) => { this.refs['pageSystem'].popup(props); },
+        prevPopup: (props) => { this.refs['pageSystem'].prevPopup(props); },
+        close: (uid) => { this.refs['pageSystem'].close(uid); },
+        closeAll: () => { this.refs['pageSystem'].closeAll(); },
       }
     };
-  }
-
-  popupPage (props) {
-    this.refs['pageSystem'].popup(props);
   }
 
   render() {

@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 class ListView extends Component {
   render() {
-    return null;
+    return <div />;
   }
 }
 

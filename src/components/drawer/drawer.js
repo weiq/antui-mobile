@@ -14,6 +14,7 @@ export default class DrawerCmpt extends Component {
     sidebar: PropTypes.node,
     /** 抽屉位置，可选 top left right bottom */
     placement: PropTypes.oneOf(['top', 'left', 'right', 'bottom']),
+    children: PropTypes.node,
   };
 
   static defaultProps = {

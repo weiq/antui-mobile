@@ -102,6 +102,28 @@ export default class System extends Component {
   }
 
   close = (uid) => {
+    let {page, current, _uids} = this.state;
+    if (page[uid]) {
+      delete page[uid];
+      _uids = _uids.filter(_uid => _uid !== uid);
+      
+      if (_uids.length > 0) {
+        current = current === uid ? _uids[_uids.length - 1] : current;
+      } else {
+        current = null;
+      }
+
+      this.setState({
+        page,
+        current,
+        _uids,
+        transition: "rfr",
+      });
+
+      if (_uids.length === 0) {
+        setTimeout(_ => this.setState({hide: true}), 400);
+      }
+    }
   }
 
   closeAll = () => {

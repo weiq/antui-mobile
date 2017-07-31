@@ -100,10 +100,16 @@ class DemoPage extends React.Component {
 
   // this.context.page.popup({uid, header, content, footer, navbar, force})
   popup = () => {
+    let uid = "demo" + this.state.page++;
     this.context.page.popup({
-      uid: "demo" + this.state.page++,
+      uid,
       navbar: {title: "Popup" + this.state.page},
-      content: <Button type="primary" onClick={this.popup}>弹出页面 {this.state.page}</Button>,
+      content: <div>
+        <Button type="primary" onClick={this.popup}>弹出页面 {this.state.page}</Button>
+        <Button type="primary" onClick={this.context.page.prevPopup}>回到上一页 {this.state.page}</Button>
+        <Button type="primary" onClick={e => this.context.page.close(uid)}>关闭页面 {this.state.page}</Button>
+        <Button type="primary" onClick={e => this.context.page.closeAll()}>关闭所有页面 {this.state.page}</Button>
+      </div>,
       style: {border: '2px solid #f50'}
     });
   }

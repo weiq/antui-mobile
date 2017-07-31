@@ -1,6 +1,6 @@
 {
   "name": "antui-mobile",
-  "version": "0.1.19",
+  "version": "0.1.22",
   "description": "mobile ui for antd",
   "main": "./lib",
   "scripts": {
